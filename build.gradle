@@ -20,7 +20,7 @@ dependencies {
 
 	implementation 'org.apache.camel.springboot:camel-spring-boot-starter:3.8.0'
 
-	compile group: 'net.dv8tion', name: 'JDA', version: '4.2.0_224'
+	compile group: 'net.dv8tion', name: 'JDA', version: '4.2.0_240'
 }
 
 test {
