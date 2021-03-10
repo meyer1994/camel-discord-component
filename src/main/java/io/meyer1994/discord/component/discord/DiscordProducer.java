@@ -18,7 +18,7 @@ public class DiscordProducer extends DefaultProducer {
 
     @Override
     public void process(final Exchange exchange) throws Exception {
-        final DiscordOperation operation = this.getEndpoint().getComponent().getOperation();
+        final DiscordOperation operation = this.getEndpoint().getOperation();
         switch (operation) {
             case MESSAGE_SEND:
                 this.messageSend(exchange);

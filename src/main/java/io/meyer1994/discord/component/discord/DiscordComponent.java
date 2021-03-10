@@ -7,7 +7,6 @@ import net.dv8tion.jda.api.JDA;
 import org.apache.camel.Endpoint;
 import org.apache.camel.spi.Metadata;
 import org.apache.camel.spi.UriParam;
-import org.apache.camel.spi.UriPath;
 import org.apache.camel.spi.annotations.Component;
 import org.apache.camel.support.DefaultComponent;
 
@@ -19,30 +18,17 @@ import java.util.Set;
 @Setter
 @Component(value = "discord")
 public class DiscordComponent extends DefaultComponent {
-    @UriPath
-    private String name;
-
     // Common
     @UriParam
     @Metadata(autowired = true)
     private JDA client;
 
-    // Producer
-    @UriParam
-    private DiscordOperation operation = DiscordOperation.MESSAGE_SEND;
-
-    // Consumer
-    @UriParam
-    private DiscordEvent event = DiscordEvent.ON_MESSAGE;
-
-
     @Override
     protected Endpoint createEndpoint(final String uri, final String remaining, final Map<String, Object> parameters) throws Exception {
-        // Set props
-        this.name = remaining;
         this.client = this.getClientFromCamelRegistry();
 
         final DiscordEndpoint endpoint = new DiscordEndpoint(uri, this);
+        endpoint.setName(remaining);
         this.setProperties(endpoint, parameters);
 
         return endpoint;
