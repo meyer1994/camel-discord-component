@@ -16,11 +16,16 @@ repositories {
 }
 
 dependencies {
+	// Spring
+    implementation 'org.springframework.boot:spring-boot-starter'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-	implementation 'org.apache.camel.springboot:camel-spring-boot-starter:3.8.0'
+	// Camel
+	implementation 'org.apache.camel.springboot:camel-spring-boot-starter:3.7.0'
+	implementation 'org.apache.camel.springboot:camel-http-starter:3.7.0'
 
-	compile group: 'net.dv8tion', name: 'JDA', version: '4.2.0_240'
+	// Discord
+	compile group: 'net.dv8tion', name: 'JDA', version: '4.2.0_224'
 }
 
 test {

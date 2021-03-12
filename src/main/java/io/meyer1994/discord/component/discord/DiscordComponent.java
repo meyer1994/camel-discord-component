@@ -37,9 +37,10 @@ public class DiscordComponent extends DefaultComponent {
     protected JDA getClientFromCamelRegistry() {
         final Set<JDA> clientBeans = this.getCamelContext().getRegistry().findByType(JDA.class);
         
-        if (clientBeans.isEmpty())
+        if (clientBeans.size() != 1)
             throw new IllegalArgumentException("There should be one, and only one, JDA client");
-        
+
+        // Return first JDA bean
         for (final JDA client : clientBeans)
             return client;
         

@@ -19,9 +19,9 @@ public class MessageReceivedHandler extends ListenerAdapter {
     public void onMessageReceived(final MessageReceivedEvent event) {
         final Exchange exchange = this.consumer.getEndpoint().createExchange();
 
-        exchange.getIn().setBody(event.getMessage());
-        exchange.getIn().setHeader(DiscordConstants.CHANNEL_ID, event.getChannel().getId());
-        exchange.getIn().setHeader(DiscordConstants.MESSAGE_ID, event.getMessage().getId());
+        exchange.getMessage().setBody(event.getMessage());
+        exchange.getMessage().setHeader(DiscordConstants.CHANNEL_ID, event.getChannel().getId());
+        exchange.getMessage().setHeader(DiscordConstants.MESSAGE_ID, event.getMessage().getId());
 
         try {
             this.getConsumer().getProcessor().process(exchange);
