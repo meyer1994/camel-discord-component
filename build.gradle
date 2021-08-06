@@ -21,7 +21,7 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 	// Camel
-	implementation 'org.apache.camel.springboot:camel-spring-boot-starter:3.11.0'
+	implementation 'org.apache.camel.springboot:camel-spring-boot-starter:3.11.1'
 	implementation 'org.apache.camel.springboot:camel-http-starter:3.11.0'
 
 	// Discord
